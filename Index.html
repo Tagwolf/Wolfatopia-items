@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WolfTopia Items</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #111;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #f39c12;
+    }
+
+    main {
+      display: flex;
+      flex: 1;
+    }
+
+    nav {
+      width: 220px;
+      background-color: #111;
+      padding: 20px;
+      border-right: 2px solid #222;
+    }
+
+    nav h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #f39c12;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin-bottom: 10px;
+    }
+
+    nav button {
+      width: 100%;
+      background-color: #222;
+      border: none;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    nav button:hover {
+      background-color: #f39c12;
+      color: #000;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .search {
+      margin-bottom: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #111;
+      border: 1px solid #f39c12;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+.itemCard {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  width: 170px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+    .itemCard:hover {
+      transform: scale(1.00);
+    }
+
+.itemImage {
+  width: 100px;
+  height: 80px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  display: block;
+  margin: 0 auto;
+}
+
+    .itemName {
+      margin-top: 8px;
+      font-size: 0.95em;
+    }
+
+    footer {
+      background-color: #111;
+      padding: 10px;
+      text-align: center;
+      border-top: 2px solid #222;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    .modal {
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal.hidden {
+      display: none;
+    }
+
+    .modal-content {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 20px #f39c12aa;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content img {
+      width: 128px;
+      height: 128px;
+      image-rendering: pixelated;
+      margin-bottom: 15px;
+    }
+
+    .modal-content h2 {
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      font-size: 0.95em;
+      margin-bottom: 8px;
+      color: #ccc;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="file.png" alt="WolfTopia Logo">
+    <h1>WolfTopia Items</h1>
+  </header>
+  <main>
+    <nav>
+      <h3>Kategorien</h3>
+      <ul id="categoryList">
+        <li><button onclick="renderItems(items)">Alle</button></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <input class="search" id="searchInput" type="text" placeholder="Suche nach Itemnamen...">
+      <div class="items" id="itemContainer"></div>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 WolfTopia • <a href="https://discord.gg/wolftopia" target="_blank" style="color:#f39c12">Discord</a> • <a href="#" style="color:#888">Impressum</a>
+  </footer>
+
+  <div id="itemModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img id="modalImage" src="" alt="Item">
+      <h2 id="modalName">Item Name</h2>
+      <p><strong>Kategorie:</strong> <span id="modalCategory"></span></p>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+
+  <script>
+    let items = [];
+
+    fetch("items.json")
+      .then(response => response.json())
+      .then(data => {
+        items = data;
+        renderCategories();
+        renderItems(items);
+      });
+
+    const categoryList = document.getElementById("categoryList");
+    const itemContainer = document.getElementById("itemContainer");
+    const searchInput = document.getElementById("searchInput");
+
+    function renderCategories() {
+      const categories = [...new Set(items.map(item => item.category))];
+      categories.forEach(category => {
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.textContent = category;
+        btn.onclick = () => {
+          const filtered = items.filter(item => item.category === category);
+          renderItems(filtered);
+        };
+        li.appendChild(btn);
+        categoryList.appendChild(li);
+      });
+    }
+
+    function renderItems(itemList) {
+      itemContainer.innerHTML = itemList
+        .filter(item => item.name.toLowerCase().includes(searchInput.value.toLowerCase()))
+        .map(item => createItemHTML(item))
+        .join("");
+    }
+
+    function createItemHTML(item) {
+      return `
+        <div class="itemCard" title="${item.name}" onclick='showItemDetails(${JSON.stringify(item).replace(/'/g, "\\'")})'>
+          <img src="${item.texture}" alt="${item.name}" class="itemImage" />
+          <div class="itemName">${item.name}</div>
+        </div>
+      `;
+    }
+
+    searchInput.addEventListener("input", () => renderItems(items));
+
+    function showItemDetails(item) {
+      document.getElementById("modalImage").src = item.texture;
+      document.getElementById("modalName").textContent = item.name;
+      document.getElementById("modalCategory").textContent = item.category || "Unbekannt";
+      document.getElementById("modalDescription").textContent = item.description || "Keine Beschreibung vorhanden.";
+      document.getElementById("itemModal").classList.remove("hidden");
+    }
+
+    document.querySelector(".close-button").addEventListener("click", () => {
+      document.getElementById("itemModal").classList.add("hidden");
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        document.getElementById("itemModal").classList.add("hidden");
+      }
+    });
+  </script>
+</body>
+                                                                </html>
+                                                                
