@@ -12,3 +12,53 @@
     "description": "Limitierte Weihnachtsbelohnung."
   }
 ]
+[
+  {
+    "name": "SpawnGS Gutschein",
+    "category": "Event Items",
+    "texture": "https://i.imgur.com/FXnBsd3_d.webp?maxwidth=760&fidelity=grand",
+    "description": "Ein Gutschein, mit dem du dir ein Spawn-GS sichern kannst."
+  },
+  {
+    "name": "Booster Gutschein",
+    "category": "Event Items",
+    "texture": "https://i.imgur.com/eD3yJJF.png",
+    "description": "Aktiviere einen Serverweiten Booster."
+  },
+  {
+    "name": "Grundgestein",
+    "category": "Limitierte Items",
+    "texture": "https://i.imgur.com/z1r334l.png",
+    "description": "Unzerstörbares Blockmaterial – nur für Sammler."
+  },
+  {
+    "name": "Drachenei",
+    "category": "Admin Items",
+    "texture": "https://i.imgur.com/BsM6oni.png",
+    "description": "Ein Relikt des End-Drachens – nur für die höchsten Admins."
+  },
+  {
+    "name": "Barriere",
+    "category": "Admin Items",
+    "texture": "https://i.imgur.com/ZVtRa2q.png",
+    "description": "Unsichtbar, aber unüberwindbar."
+  },
+  {
+    "name": "Leuchtfeuer",
+    "category": "Admin Items",
+    "texture": "https://i.imgur.com/BYw1m1O.png",
+    "description": "Strahlt Kraft aus – ein Symbol der Stärke."
+  },
+  {
+    "name": "Spawner",
+    "category": "Admin Items",
+    "texture": "https://i.imgur.com/PlKb3gF.png",
+    "description": "Ermöglicht es, Mobs zu spawnen – heiß begehrt."
+  },
+  {
+    "name": "Lichtblock",
+    "category": "Admin Items",
+    "texture": "https://i.imgur.com/pFOGqb5.png",
+    "description": "Unsichtbares Licht – nur mit Rechten platzierbar."
+  }
+]
