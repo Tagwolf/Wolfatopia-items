@@ -12,7 +12,7 @@
     "description": "Limitierte Weihnachtsbelohnung."
   },
   {
-    "name": "1.Reihe SpawnGS Gutschein",
+    "name": "2.Reihe SpawnGS Gutschein",
     "category": "Event Items",
     "texture": "https://i.imgur.com/FXnBsd3_d.webp?maxwidth=760&fidelity=grand",
     "description": "Ein Gutschein, mit dem du dir ein Spawn-GS sichern kannst."
@@ -60,8 +60,8 @@
     "description": "Unsichtbares Licht – nur mit Rechten platzierbar."
   },
   {
-    "name": "SpawnGS Gutschein",
-    "category": "Perks",
+    "name": "1,Reihe SpawnGS Gutschein",
+    "category": "Event Items",
     "texture": "https://i.imgur.com/sZzI9tI.png",
     "description": "Sichere dir ein Grundstück direkt am Spawn!"
   },
