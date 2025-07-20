@@ -12,7 +12,7 @@
     "description": "Limitierte Weihnachtsbelohnung."
   },
   {
-    "name": "SpawnGS Gutschein",
+    "name": "1.Reihe SpawnGS Gutschein",
     "category": "Event Items",
     "texture": "https://i.imgur.com/FXnBsd3_d.webp?maxwidth=760&fidelity=grand",
     "description": "Ein Gutschein, mit dem du dir ein Spawn-GS sichern kannst."
@@ -21,11 +21,11 @@
     "name": "Booster Gutschein",
     "category": "Event Items",
     "texture": "https://i.imgur.com/eD3yJJF.png",
-    "description": "Aktiviere einen Serverweiten Booster."
+    "description": "Aktiviere einen serverweiten Booster."
   },
   {
     "name": "Grundgestein",
-    "category": "Limitierte Items",
+    "category": "Admin Items",
     "texture": "https://i.imgur.com/z1r334l.png",
     "description": "Unzerstörbares Blockmaterial – nur für Sammler."
   },
@@ -58,5 +58,35 @@
     "category": "Admin Items",
     "texture": "https://i.imgur.com/pFOGqb5.png",
     "description": "Unsichtbares Licht – nur mit Rechten platzierbar."
+  },
+  {
+    "name": "SpawnGS Gutschein",
+    "category": "Perks",
+    "texture": "https://i.imgur.com/sZzI9tI.png",
+    "description": "Sichere dir ein Grundstück direkt am Spawn!"
+  },
+  {
+    "name": "Vogel Perk",
+    "category": "Perks",
+    "texture": "https://i.imgur.com/elCNaTs.png",
+    "description": "Fliege wie ein Vogel – temporärer Flugmodus."
+  },
+  {
+    "name": "Schildkröte Perk",
+    "category": "Perks",
+    "texture": "https://i.imgur.com/uT0dL1Q.png",
+    "description": "Erhalte Resistenz und langsameren Fall."
+  },
+  {
+    "name": "Frosch Perk",
+    "category": "Perks",
+    "texture": "https://i.imgur.com/FPGwOPF.png",
+    "description": "Höher springen und schneller schwimmen."
+  },
+  {
+    "name": "Kein Fallschaden Perk",
+    "category": "Perks",
+    "texture": "https://i.imgur.com/XE3EKyA.png",
+    "description": "Du erleidest keinen Fallschaden mehr!"
   }
 ]
