@@ -88,5 +88,17 @@
     "category": "Perks",
     "texture": "https://i.imgur.com/XE3EKyA.png",
     "description": "Du erleidest keinen Fallschaden mehr!"
+  },
+  {
+    "name": "Angel der Ruhe",
+    "category": "Lorbs",
+    "texture": "https://i.imgur.com/cQ9QSKP.png",
+    "description": "Beruhigt selbst die wildesten Wasser – einzigartig unter Anglern."
+  },
+  {
+    "name": "Werkzeug des Lehrlings",
+    "category": "Lorbs",
+    "texture": "https://i.imgur.com/cTaCgnr.png",
+    "description": "Ein einfaches, aber mächtiges Werkzeug für junge Abenteurer."
   }
 ]
